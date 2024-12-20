@@ -84,7 +84,11 @@
 			);
 
         // Reload the renderer in case we have module helpers
-        controller.getRenderer().startup()
+		try{
+			controller.getRenderer().startup();
+		} catch( any e ){
+			// this is coldbox 6
+		}
         // Reload all interceptors with new mixins if available.
         controller.getInterceptorService().announce( "cbLoadInterceptorHelpers" )
 	}
