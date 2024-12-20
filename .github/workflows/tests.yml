@@ -60,7 +60,7 @@ jobs:
           printf "TINYURL_ENABLED=true" >> .env
           printf "KUTT_ENDPOINT=http://127.0.0.1:3000" >> .env
           printf "KUTT_THROWONERROR=true" >> .env
-          printf "KUTT_AUTHTOKEN=" >> .env
+          printf "KUTT_AUTHTOKEN=3n9plnz1om-K2v?1sGr17GjgE?fumkD6oEQ84m84Wub" >> .env
           printf "DB_CLASS=org.postgresql.Driver" >> .env
           printf "DB_DRIVER=PostgreSQL" >> .env
           printf "DB_BUNDLEVERSION=42.7.4" >> .env
