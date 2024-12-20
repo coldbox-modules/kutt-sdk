@@ -16,6 +16,11 @@ jobs:
   ##########################################################################################
   tests:
     secrets: inherit
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read
+      issues: read
     uses: ./.github/workflows/tests.yml
 
   ##########################################################################################
