@@ -1,12 +1,10 @@
 component extends="coldbox.system.testing.BaseTestCase" {
 
-
-
 	function beforeAll(){
 		super.beforeAll();
-		try{
+		try {
 			variables.envUtil = new coldbox.system.core.delegates.Env();
-		} catch( any e ){
+		} catch ( any e ) {
 			// Coldbox 6
 			variables.envUtil = new coldbox.system.core.util.Util();
 		}
