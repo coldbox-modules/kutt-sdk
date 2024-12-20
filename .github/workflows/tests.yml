@@ -75,7 +75,7 @@ jobs:
           box install
 
       - name: Start Kutt Stack
-        uses: hoverkraft-tech/compose-action@v0.0.0
+        uses: hoverkraft-tech/compose-action@v2.0.2
 
       - name: Start ${{ matrix.cfengine }} Server
         run: |
