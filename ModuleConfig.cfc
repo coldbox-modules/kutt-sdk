@@ -35,7 +35,9 @@ component {
 		};
 
 		if ( !len( settings.endpoint ) ) {
-			log.error( "The tiny-url module requires an endpoint to be set in the configuration.  Module functionality has been deactivated" );
+			log.error(
+				"The tiny-url module requires an endpoint to be set in the configuration.  Module functionality has been deactivated"
+			);
 			settings.enabled = false;
 		}
 	}

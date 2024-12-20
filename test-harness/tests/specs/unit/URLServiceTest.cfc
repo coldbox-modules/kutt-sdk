@@ -6,14 +6,18 @@ component extends="coldbox.system.testing.BaseTestCase" {
 		super.beforeAll();
 		var qUser = queryExecute( "SELECT * from users WHERE email = 'info@ortussolutions.com'" );
 		if ( !qUser.recordCount ) {
-			queryExecute( "
+			queryExecute(
+				"
 				INSERT INTO ""public"".""users"" (""id"", ""apikey"", ""banned"", ""banned_by_id"", ""cooldowns"", ""email"", ""password"", ""reset_password_expires"", ""reset_password_token"", ""change_email_expires"", ""change_email_token"", ""change_email_address"", ""verification_expires"", ""verification_token"", ""verified"", ""created_at"", ""updated_at"")
 				VALUES (1, '#envUtil.getSystemSetting( "KUTT_AUTHTOKEN" )#', 'f', NULL, NULL, 'info@ortussolutions.com', '$2a$12$bNyOHO6onA6lvyyZNWGj6uWvM/ZLKrYQZfU3CRGqyGX1zIkeHsV9i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 't', '2024-12-19 18:01:54.515789+00', '2024-12-19 18:02:49.362+00');
-			" );
+			"
+			);
 		} else {
-			queryExecute( "
+			queryExecute(
+				"
 				UPDATE ""public"".""users"" SET ""apikey"" = '#envUtil.getSystemSetting( "KUTT_AUTHTOKEN" )#' WHERE ""email"" = 'info@ortussolutions.com'
-			" );
+			"
+			);
 		}
 
 		variables.model = getWirebox().getInstance( "URLService@kutt" );
