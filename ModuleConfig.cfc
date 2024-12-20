@@ -6,17 +6,17 @@
 component {
 
 	// Module Properties
-	this.title 				= "@MODULE_NAME@";
+	this.title 				= "Kutt SDK";
 	this.author 			= "Ortus Solutions";
 	this.webURL 			= "https://www.ortussolutions.com";
-	this.description 		= "@MODULE_DESCRIPTION@";
+	this.description 		= "Tiny URL SDK for kutt.it";
 	this.version 			= "@build.version@+@build.number@";
 
 	// Model Namespace
-	this.modelNamespace		= "@MODULE_SLUG@";
+	this.modelNamespace		= "Kutt";
 
 	// CF Mapping
-	this.cfmapping			= "@MODULE_SLUG@";
+	this.cfmapping			= "Kutt";
 
 	// Dependencies
 	this.dependencies 		= [];
@@ -25,9 +25,19 @@ component {
 	 * Configure Module
 	 */
 	function configure(){
+		// module settings - stored in modules.name.settings
 		settings = {
-
+			"enabled" : getSystemSetting( "TINYURL_ENABLED", true ),
+			"endpoint" : getSystemSetting( "KUTT_ENDPOINT", "" ),
+			"authToken" : getSystemSetting( "KUTT_AUTHTOKEN", "" ),
+			"defaultExipration" : "30 days",
+			"throwOnError" : getSystemSetting( "KUTT_THROWONERROR", false )
 		};
+
+		if( !len( settings.endpoint ) ){
+			log.error( "The tiny-url module requires an endpoint to be set in the configuration.  Module functionality has been deactivated" );
+			settings.enabled = false;
+		}
 	}
 
 	/**

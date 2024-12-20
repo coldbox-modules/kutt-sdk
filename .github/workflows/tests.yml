@@ -12,8 +12,8 @@ jobs:
     name: Tests
     runs-on: ubuntu-20.04
     env:
-      DB_USER: root
-      DB_PASSWORD: root
+      DB_USER: kutt
+      DB_PASSWORD: T1nyURLs!
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
@@ -39,12 +39,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # - name: Setup Database and Fixtures
-      #   run: |
-      #     sudo systemctl start mysql.service
-      #     mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} -e 'CREATE DATABASE mementifier;'
-      #     mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} < test-harness/tests/resources/coolblog.sql
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -54,20 +48,24 @@ jobs:
       - name: Setup CommandBox CLI
         uses: Ortus-Solutions/setup-commandbox@v2.0.1
 
-      # Not Needed in this module
-      #- name: Setup Environment For Testing Process
-      #  run: |
-      #    # Setup .env
-      #    touch .env
-      #    # ENV
-      #    printf "DB_HOST=localhost\n" >> .env
-      #    printf "DB_DATABASE=mydatabase\n" >> .env
-      #    printf "DB_DRIVER=MySQL\n" >> .env
-      #    printf "DB_USER=${{ env.DB_USER }}\n" >> .env
-      #    printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
-      #    printf "DB_CLASS=com.mysql.cj.jdbc.Driver\n" >> .env
-      #    printf "DB_BUNDLEVERSION=8.0.19\n" >> .env
-      #    printf "DB_BUNDLENAME=com.mysql.cj\n" >> .env
+      - name: Setup Environment For Testing Process
+        run: |
+          touch .env
+          printf "LUCEE_EXTENSIONS=671B01B8-B3B3-42B9-AC055A356BED5281;version=42.7.4" >> .env
+          printf "TINYURL_ENABLED=true" >> .env
+          printf "KUTT_ENDPOINT=http://127.0.0.1:3000" >> .env
+          printf "KUTT_THROWONERROR=true" >> .env
+          printf "KUTT_AUTHTOKEN=" >> .env
+          printf "DB_CLASS=org.postgresql.Driver" >> .env
+          printf "DB_DRIVER=PostgreSQL" >> .env
+          printf "DB_BUNDLEVERSION=42.7.4" >> .env
+          printf "DB_BUNDLENAME=org.postgresql.jdbc42" >> .env
+          printf "DB_HOST=127.0.0.1" >> .env
+          printf "DB_PORT=5432" >> .env
+          printf "DB_CONNECTIONSTRING=jdbc:postgresql://localhost:5432/kutt" >> .env
+          printf "DB_DATABASE=kutt" >> .env
+          printf "DB_USER=${{ env.DB_USER }}\n" >> .env
+          printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
 
       - name: Install Test Harness with ColdBox ${{ matrix.coldboxVersion }}
         run: |
@@ -75,6 +73,9 @@ jobs:
           cd test-harness
           box package set dependencies.coldbox=${{ matrix.coldboxVersion }}
           box install
+
+      - name: Start Kutt Stack
+        uses: hoverkraft-tech/compose-action@v0.0.0
 
       - name: Start ${{ matrix.cfengine }} Server
         run: |

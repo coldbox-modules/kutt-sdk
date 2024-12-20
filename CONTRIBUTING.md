@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Hola amigo! I'm really excited that you are interested in contributing to @MODULE_NAME@. Before submitting your contribution, please make sure to take a moment and read through the following guidelines:
+Hola amigo! I'm really excited that you are interested in contributing to Kutt SDK. Before submitting your contribution, please make sure to take a moment and read through the following guidelines:
 
 - [Code Of Conduct](#code-of-conduct)
 - [Bug Reporting](#bug-reporting)
@@ -98,11 +98,11 @@ You can support ColdBox and all of our Open Source initiatives at Ortus Solution
 
 ## Contributors
 
-Thank you to all the people who have already contributed to @MODULE_NAME@! We :heart: :heart: :heart: love you!
+Thank you to all the people who have already contributed to Kutt SDK! We :heart: :heart: :heart: love you!
 
 
-<a href = "https://github.com/coldbox-modules/@module_name@/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=coldbox-modules/@module_name@"/>
+<a href = "https://github.com/coldbox-modules/Kutt SDK/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=coldbox-modules/Kutt SDK"/>
 </a>
 
 Made with [contributors-img](https://contrib.rocks)
