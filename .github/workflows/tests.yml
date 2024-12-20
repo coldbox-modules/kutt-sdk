@@ -11,6 +11,11 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-20.04
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read
+      issues: read
     env:
       DB_USER: kutt
       DB_PASSWORD: T1nyURLs!
