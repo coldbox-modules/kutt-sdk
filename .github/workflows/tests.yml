@@ -56,19 +56,19 @@ jobs:
       - name: Setup Environment For Testing Process
         run: |
           touch .env
-          printf "LUCEE_EXTENSIONS=671B01B8-B3B3-42B9-AC055A356BED5281;version=42.7.4" >> .env
-          printf "TINYURL_ENABLED=true" >> .env
-          printf "KUTT_ENDPOINT=http://127.0.0.1:3000" >> .env
-          printf "KUTT_THROWONERROR=true" >> .env
-          printf "KUTT_AUTHTOKEN=3n9plnz1om-K2v?1sGr17GjgE?fumkD6oEQ84m84Wub" >> .env
-          printf "DB_CLASS=org.postgresql.Driver" >> .env
-          printf "DB_DRIVER=PostgreSQL" >> .env
-          printf "DB_BUNDLEVERSION=42.7.4" >> .env
-          printf "DB_BUNDLENAME=org.postgresql.jdbc42" >> .env
-          printf "DB_HOST=127.0.0.1" >> .env
-          printf "DB_PORT=5432" >> .env
-          printf "DB_CONNECTIONSTRING=jdbc:postgresql://localhost:5432/kutt" >> .env
-          printf "DB_DATABASE=kutt" >> .env
+          printf "LUCEE_EXTENSIONS=671B01B8-B3B3-42B9-AC055A356BED5281;version=42.7.4\n" >> .env
+          printf "TINYURL_ENABLED=true\n" >> .env
+          printf "KUTT_ENDPOINT=http://127.0.0.1:3000\n" >> .env
+          printf "KUTT_THROWONERROR=true\n" >> .env
+          printf "KUTT_AUTHTOKEN=3n9plnz1om-K2v?1sGr17GjgE?fumkD6oEQ84m84Wub\n" >> .env
+          printf "DB_CLASS=org.postgresql.Driver\n" >> .env
+          printf "DB_DRIVER=PostgreSQL\n" >> .env
+          printf "DB_BUNDLEVERSION=42.7.4\n" >> .env
+          printf "DB_BUNDLENAME=org.postgresql.jdbc42\n" >> .env
+          printf "DB_HOST=127.0.0.1\n" >> .env
+          printf "DB_PORT=5432\n" >> .env
+          printf "DB_CONNECTIONSTRING=jdbc:postgresql://localhost:5432/kutt\n" >> .env
+          printf "DB_DATABASE=kutt\n" >> .env
           printf "DB_USER=${{ env.DB_USER }}\n" >> .env
           printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
 
