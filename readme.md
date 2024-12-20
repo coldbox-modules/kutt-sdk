@@ -54,6 +54,7 @@ var urlService = getInstance( "URLService@kutt" );
 var tiny1 = urlService.create( "https://www.ortussolutions.com" );
 // When reuse is set to false it will always create a new tinyURL
 var tiny1 = urlService.create( target="https://www.ortussolutions.com", reuse=false );
+```
 
 
 
