@@ -1,9 +1,16 @@
 component extends="coldbox.system.testing.BaseTestCase" {
 
-	variables.envUtil = new coldbox.system.core.delegates.Env();
+
 
 	function beforeAll(){
 		super.beforeAll();
+		try{
+			variables.envUtil = new coldbox.system.core.delegates.Env();
+		} catch( any e ){
+			// Coldbox 6
+			variables.envUtil = new coldbox.system.core.util.Util();
+		}
+
 		var qUser = queryExecute( "SELECT * from users WHERE email = 'info@ortussolutions.com'" );
 		if ( !qUser.recordCount ) {
 			queryExecute(
