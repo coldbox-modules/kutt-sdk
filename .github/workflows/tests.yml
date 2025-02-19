@@ -80,11 +80,13 @@ jobs:
           box install
 
       - name: Start Kutt Stack
-        uses: hoverkraft-tech/compose-action@v2.0.2
+        uses: hoverkraft-tech/compose-action@v2.2.0
 
+      # Sleep for ten seconds before starting the server to give Kutt the time to do its migrations
       - name: Start ${{ matrix.cfengine }} Server
         run: |
           box server start serverConfigFile="server-${{ matrix.cfengine }}.json" --noSaveSettings --debug
+          sleep 10
           curl http://127.0.0.1:60299
 
       - name: Run Tests
