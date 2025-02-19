@@ -1,7 +1,7 @@
 component {
 
 	property name="hyperBuilder"   inject="HyperBuilder@hyper";
-	property name="moduleSettings" inject="coldbox:moduleSettings:kutt-sdk";
+	property name="moduleSettings" inject="box:moduleSettings:kutt-sdk";
 	property name="log"            inject="logbox:logger:{this}";
 
 
