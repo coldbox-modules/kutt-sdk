@@ -78,6 +78,7 @@ jobs:
           cd test-harness
           box package set dependencies.coldbox=${{ matrix.coldboxVersion }}
           box install
+          cat .env
 
       - name: Start Kutt Stack
         uses: hoverkraft-tech/compose-action@v2.2.0
