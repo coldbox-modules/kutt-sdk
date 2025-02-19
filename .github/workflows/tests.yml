@@ -71,12 +71,9 @@ jobs:
           printf "DB_DATABASE=kutt\n" >> .env
           printf "DB_USER=${{ env.DB_USER }}\n" >> .env
           printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
-          ls -la ./
 
       - name: Install Test Harness with ColdBox ${{ matrix.coldboxVersion }}
         run: |
-          ls -la ./
-          cat ./.env
           box install
           cd test-harness
           box package set dependencies.coldbox=${{ matrix.coldboxVersion }}
@@ -115,6 +112,7 @@ jobs:
       - name: Show Server Log On Failures
         if: ${{ failure() }}
         run: |
+          docker compose logs
           box server log serverConfigFile="server-${{ matrix.cfengine }}.json"
 
       - name: Upload Debug Logs To Artifacts
