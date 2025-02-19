@@ -9,10 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-02-19
+
 ## [1.0.0] - 2024-12-20
 
 - First iteration of this module
 
-[Unreleased]: https://github.com/coldbox-modules/kutt-sdk/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/coldbox-modules/kutt-sdk/compare/v1.1.0...HEAD
+
+[1.1.0]: https://github.com/coldbox-modules/kutt-sdk/compare/v1.0.0...v1.1.0
 
 [1.0.0]: https://github.com/coldbox-modules/kutt-sdk/compare/ee11388c9902c30d9d8413f8e3278d83b6bbee15...v1.0.0
